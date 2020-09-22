@@ -9,24 +9,32 @@ const addTodo = (event) => {
 
 	//Create LI
 	const newTodo = document.createElement('li');
-	newTodo.innerText = todoInput.value;
-	newTodo.classList.add('todo-item');
-	todoDiv.appendChild(newTodo);
+	if(todoInput.value != ""){
+		newTodo.innerText = todoInput.value;
+		newTodo.classList.add('todo-item');
+		todoDiv.appendChild(newTodo);
+	}
 
 	//CHECK MARK BUTTON
 	const completedButton = document.createElement('button');
-	completedButton.innerHTML = '<i class="fas fa-check"></i>';
-	completedButton.classList.add("complete-btn");
-	todoDiv.appendChild(completedButton);
+	if(todoInput.value != ""){
+		completedButton.innerHTML = '<i class="fas fa-check"></i>';
+		completedButton.classList.add("complete-btn");
+		todoDiv.appendChild(completedButton);
+	}
 
 	//CHECK DELETE BUTTON
 	const trashButton = document.createElement('button');
-	trashButton.innerHTML = '<i class="fas fa-trash"></i>';
-	trashButton.classList.add("trash-btn");
-	todoDiv.appendChild(trashButton); 
+	if(todoInput.value != ""){
+		trashButton.innerHTML = '<i class="fas fa-trash"></i>';
+	 	trashButton.classList.add("trash-btn");
+	 	todoDiv.appendChild(trashButton);
+	} 
 
 	//APPEND TO LIST
-	todoList.appendChild(todoDiv);
+	if(todoInput.value != ""){
+		todoList.appendChild(todoDiv);
+	}
 
 	//Clear Todo INPUT VALUE
 	todoInput.value = "";
